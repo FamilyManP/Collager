@@ -65,7 +65,8 @@ namespace WindowsFormsApp1
                         //math for finding columns needed based upon allowed badges per column
                         int columnsNeeded = (int)Math.Ceiling((double)filesSelected / (double)badgesPerColumn);
                         //create an empty bitmap with the newly found values 
-                        Bitmap result = new Bitmap(width * columnsNeeded, height * badgesPerColumn);
+                        Bitmap result = new Bitmap(width * columnsNeeded + ((columnsNeeded -1) * paddingWidth), height * badgesPerColumn + ((badgesPerColumn - 1) * paddingHeight));
+                       
 
                         //iterate through each file selected
                         foreach (string selectedItems in openFileDialog.FileNames)
@@ -168,7 +169,7 @@ namespace WindowsFormsApp1
                         //math for finding columns needed based upon allowed badges per column
                         int columnsNeeded = (int)Math.Ceiling((double)filesSelected / (double)badgesPerColumn);
                         //create an empty bitmap with the newly found values 
-                        Bitmap result = new Bitmap(width * badgesPerColumn, height * columnsNeeded);
+                        Bitmap result = new Bitmap(width * badgesPerColumn + ((badgesPerColumn - 1) * paddingWidth), height * columnsNeeded + ((columnsNeeded - 1) * paddingHeight));
 
                         //iterate through each file selected
                         foreach (string selectedItems in openFileDialog.FileNames)
